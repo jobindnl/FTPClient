@@ -102,7 +102,7 @@ public class ftpHelper {
             out.println("STOR " + address);
             out.flush();
             String line = in.readLine();
-            //System.out.println(in.readLine());
+            System.out.println(in.readLine());
 
             File file = new File(address);
             FileInputStream fis = new FileInputStream(file);
