@@ -78,5 +78,37 @@ public class ftpHelper {
         
     }
 
+    public void QUIT(){
+        try {
+            out.println("QUIT");
+            out.flush();
+            System.out.println(in.readLine());
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    public void CD(String address){
+
+        try {
+            out.println("CWD " + address);
+            out.flush();
+            System.out.println(in.readLine());
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+    }
+    public void DELETE(String name){
+
+            try {
+                out.println("DELE " + name);
+                out.flush();
+                System.out.println(in.readLine());
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+
+    }
     
 }
