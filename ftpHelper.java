@@ -20,7 +20,11 @@ public class ftpHelper {
        
     }
     
-
+    /**
+     * 
+     * logins into the server. after logging in, the method returns a boolean
+     * will not login in again if user is already logged in
+     */
     public boolean LOGIN(){
 
         try {
@@ -78,10 +82,17 @@ public class ftpHelper {
         
     }
 
+    /**
+     * 
+     * put method takes in the second argument of the 'put' command and sends it to the server
+     */
+
     public void PUT(String address){
 
-        String input;
         try {
+            /**
+             * sends passive command to establish a new port in which the server will be listening on 
+             */
             out.println("PASV");
             out.flush();
             String portnum = in.readLine();
@@ -104,6 +115,9 @@ public class ftpHelper {
             String line = in.readLine();
             System.out.println(in.readLine());
 
+            /**
+             * uses file streams and input/buffered readers to send and receive byes for file transfer
+             */
             File file = new File(address);
             FileInputStream fis = new FileInputStream(file);
             BufferedInputStream bis = new BufferedInputStream(fis);
@@ -125,6 +139,10 @@ public class ftpHelper {
 
     }
 
+    /**
+     * 
+     * get method takes in the second argument of the 'get' command and sends it to the server
+     */
     public void GET(String address){
 
         String input;
@@ -172,7 +190,9 @@ public class ftpHelper {
 
     }
 
-
+    /**
+     * sends the command quit to the server. exists from the sessoin
+     */
     public void QUIT(){
         try {
             out.println("QUIT");
@@ -183,6 +203,9 @@ public class ftpHelper {
         }
     }
     
+    /**
+     * changes directory by specifying the second parameter in the command. which is the path name 
+     */
     public void CD(String address){
 
         try {
@@ -194,6 +217,11 @@ public class ftpHelper {
         }
 
     }
+
+
+    /**
+     * deletes a file specified by the name provided after the delete command
+     */
     public void DELETE(String name){
 
             try {

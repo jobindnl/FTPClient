@@ -1,5 +1,3 @@
-//package com.mycompany.cntproject1;
-
 import java.net.*;
 import java.io.InputStreamReader;
 import java.io.*;
