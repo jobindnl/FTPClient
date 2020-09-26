@@ -12,6 +12,13 @@ public class ftpHelper {
     private BufferedReader user;
     String portData[] =  new String[30];
 
+     
+   ftpHelper(PrintWriter out, BufferedReader in, BufferedReader user){
+        this.out = out;
+        this.in = in;
+        this.user = user;
+       
+    }
     
 
     public boolean LOGIN(){
