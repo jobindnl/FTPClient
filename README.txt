@@ -2,10 +2,10 @@ README
 
 Members:
 
-	Name: Luis Alvarez
+	Name: Luis Alvarez USERNAME-rioluisma
 	PantherID: 3323914
 
-	Name: Jobin Daniel
+	Name: Jobin Daniel USERNAME-jobindnl
 	PantherID: 4130900
 
 GitHub Link:	
