@@ -39,10 +39,41 @@ public class ftpClient {
 
 			while(true){
 				System.out.print("Enter Command: ");
-				input = 
-			}
-			 
+				input = user.readLine();
+				words = input.split(" "); //splits user command by spaces and places them in array
+				int numWords = words.length;
 
+				if(input.equals("quit")){
+					//todo	
+					break;
+				} else if(input.equals("login") && flag && (numWords ==1)){
+					//todo
+					flag = false;
+				} else if(input.equals("ls") && (numWords == 1)){
+					//todo
+				} else if(input.equals("cd") && (numWords == 2)){
+					//todo
+				} else if(input.equals("delete") && (numWords == 2)){
+					//todo
+				} else if(input.equals("get") && (numWords == 2)){
+					//todo
+				} else if(input.equals("put") && (numWords == 2)){
+					//todo
+				} else if(!flag && input.startsWith("login") && numWords == 1){
+					//todo
+					out.println("USER");
+					out.flush();
+					System.err.println(in.readLine());
+				} else {
+					System.out.println("Command not supported");
+				}
+			}
+			/**
+			 * closes all sockets and printwriters/bufferedreaders
+			 */
+			sock.close();
+			user.close();
+			out.close();
 		} catch(Exception e){
 			System.out.println(e);
 		}
