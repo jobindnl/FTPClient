@@ -78,6 +78,54 @@ public class ftpHelper {
         
     }
 
+    public void GET(String address){
+
+        String input;
+        try {
+            out.println("PASV");
+            out.flush();
+            String portnum = in.readLine();
+            int index = portnum.indexOf("(") + 1;
+            int indexLast = portnum.indexOf(")");
+            String newStr = portnum.substring(index, indexLast);
+            portData = newStr.split(",");
+            
+            int port1, port2;
+            port1 = Integer.parseInt(portData[4]);
+            port2 = Integer.parseInt(portData[5]);
+            int newPort = (port1 * 256) + port2;
+            
+            String hostNumberIP = portData[0] + "." + portData[1] + "." +portData[2] + "." + portData[3];
+            
+            sock2 = new Socket(hostNumberIP, newPort);
+            //in2 = new BufferedReader(new InputStreamReader(sock2.getInputStream()));
+            
+            out.println("RETR " + address);
+            out.flush();
+
+            System.out.println(in.readLine());
+
+            InputStream is = sock2.getInputStream();
+            int bufferSize = sock2.getReceiveBufferSize();
+            FileOutputStream fos = new FileOutputStream(address);
+            BufferedOutputStream bos = new BufferedOutputStream(fos);
+            byte[] bytes = new byte[bufferSize];
+            int count;
+            while ((count = is.read(bytes)) >= 0) {
+                bos.write(bytes, 0, count);
+            }
+            bos.close();
+            is.close();
+
+
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+    }
+
+
     public void QUIT(){
         try {
             out.println("QUIT");
