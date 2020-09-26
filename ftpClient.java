@@ -46,8 +46,8 @@ public class ftpClient {
 				int numWords = words.length;
 
 				if(input.equals("quit")){
-					//todo	
-					break;
+					ftp.QUIT(); 
+                        		break;
 				} else if(input.equals("login") && flag && (numWords ==1)){
 					ftp.LOGIN();
 					flag = false;
@@ -58,11 +58,10 @@ public class ftpClient {
 				} else if(input.equals("delete") && (numWords == 2)){
 					ftp.DELETE(words[1]);
 				} else if(input.equals("get") && (numWords == 2)){
-					//todo
+					ftp.GET(words[1]);
 				} else if(input.equals("put") && (numWords == 2)){
-					//todo
+					ftp.PUT(words[1]);
 				} else if(!flag && input.startsWith("login") && numWords == 1){
-					//todo
 					out.println("USER");
 					out.flush();
 					System.err.println(in.readLine());
