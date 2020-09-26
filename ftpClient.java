@@ -52,11 +52,11 @@ public class ftpClient {
 					ftp.LOGIN();
 					flag = false;
 				} else if(input.equals("ls") && (numWords == 1)){
-					ftp.LIST();
+					ftp.LIST();	
 				} else if(input.equals("cd") && (numWords == 2)){
-					//todo
+					ftp.CD(words[1]);
 				} else if(input.equals("delete") && (numWords == 2)){
-					//todo
+					ftp.DELETE(words[1]);
 				} else if(input.equals("get") && (numWords == 2)){
 					//todo
 				} else if(input.equals("put") && (numWords == 2)){
