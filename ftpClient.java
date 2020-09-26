@@ -19,6 +19,16 @@ public class ftpClient {
 
 		host = args[0];
 
+		try{
+			sock = new Socket(host, 21);
+			PrintWriter out = new PrintWriter(sock.getOutputStream);
+			BufferedReader in = new BufferedReader(new InputStreamReader(sock.getInputStream()));
+
+
+		} catch(Exception e){
+			System.out.println(e);
+		}
+
 	}
 
 }
