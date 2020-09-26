@@ -29,7 +29,9 @@ public class ftpClient {
 			 * creates new object of helper class with all methods
 			 * passes all printwriter and bufferedReaders
 			 */
-			
+
+			ftpHelper ftp = new ftpHelper(out, in, user);
+
 			 
 			System.out.println("Connection Established ");
 			System.out.println(in.read()); //reads first line upon connection
@@ -47,10 +49,10 @@ public class ftpClient {
 					//todo	
 					break;
 				} else if(input.equals("login") && flag && (numWords ==1)){
-					//todo
+					ftp.LOGIN();
 					flag = false;
 				} else if(input.equals("ls") && (numWords == 1)){
-					//todo
+					ftp.LIST();
 				} else if(input.equals("cd") && (numWords == 2)){
 					//todo
 				} else if(input.equals("delete") && (numWords == 2)){
