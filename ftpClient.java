@@ -36,9 +36,9 @@ public class ftpClient {
 
 			String input; //string for user commands
 			boolean flag = true; //prevents user from logging in again
-
+			System.out.println("Please login first by using the 'login' command");
 			while(true){
-				System.out.print("Enter Command: ");
+				System.out.print("myftp> ");
 				input = user.readLine();
 				words = input.split(" "); //splits user command by spaces and places them in array
 				int numWords = words.length;
