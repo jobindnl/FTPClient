@@ -32,7 +32,7 @@ public class ftpClient {
 
 			 
 			System.out.println("Connection Established ");
-			System.out.println(in.read()); //reads first line upon connection
+			System.out.println(in.readLine()); //reads first line upon connection
 
 			String input; //string for user commands
 			boolean flag = true; //prevents user from logging in again
