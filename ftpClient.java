@@ -51,13 +51,13 @@ public class ftpClient {
 					flag = false;
 				} else if(input.equals("ls") && (numWords == 1)){
 					ftp.LIST();	
-				} else if(input.equals("cd") && (numWords == 2)){
+				} else if(input.startsWith("cd") && (numWords == 2)){
 					ftp.CD(words[1]);
-				} else if(input.equals("delete") && (numWords == 2)){
+				} else if(input.startsWith("delete") && (numWords == 2)){
 					ftp.DELETE(words[1]);
-				} else if(input.equals("get") && (numWords == 2)){
+				} else if(input.startsWith("get") && (numWords == 2)){
 					ftp.GET(words[1]);
-				} else if(input.equals("put") && (numWords == 2)){
+				} else if(input.startsWith("put") && (numWords == 2)){
 					ftp.PUT(words[1]);
 				} else if(!flag && input.startsWith("login") && numWords == 1){
 					out.println("USER");
